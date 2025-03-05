@@ -1,0 +1,315 @@
+### **Práctica: Introducción a Git - 40 Ejercicios Básicos**
+
+### **Ejercicio 1: Verificar la Instalación de Git**
+
+**Preguntas a responder:**  
+- ¿Qué comando debes usar para verificar la versión de Git?
+    git --version
+- Si no tienes Git instalado, ¿qué opciones tienes para instalarlo?
+    Descargar el instalador del sitio oficial https://git-scm.com/ 
+---
+
+### **Ejercicio 2: Crear un Directorio de Trabajo**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para crear un nuevo directorio?  
+    mkdir <<nombre del directorio>>
+- ¿Cómo puedes cambiar a un directorio específico desde la terminal?
+    cd <<url absoluta del directorio>>
+---
+
+### **Ejercicio 3: Inicializar un Repositorio Git**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para inicializar Git en un directorio?
+    git init
+- ¿Cómo puedes confirmar que Git ha sido inicializado correctamente?
+    Comprobar con el comando Get-ChildItem -Force si se encuentra el archivo .git en el directorio raiz del proyecto
+---
+
+### **Ejercicio 4: Comprobar el Estado del Repositorio**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para comprobar el estado del repositorio? 
+    git status 
+- ¿Qué significa cuando Git dice que no hay archivos rastreados?
+    Significa que aún no se ha agregado ningún archivo al staging area
+---
+
+### **Ejercicio 5: Crear un Archivo y Verificar el Estado**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para crear un archivo nuevo desde la terminal?  
+    echo "" > README.md
+- ¿Qué diferencia observas en el estado del repositorio después de crear el archivo?
+    Ahora me aparece el nombre del archivo en rojo y me dice que use el comando git add
+
+---
+
+### **Ejercicio 6: Añadir un Archivo al Área de Preparación**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para añadir un archivo al área de preparación?  
+    git add <<nombre del arcchivo>>
+- ¿Qué significa añadir un archivo al área de preparación?
+    Es indicarle a Git que quieres incluir ese archivo en el próximo commit
+---
+
+### **Ejercicio 7: Realizar un Commit**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para realizar un commit?  
+    git commit -m 'Añadido archivo README.md'
+- ¿Por qué es importante incluir un mensaje claro en cada commit?
+    Para que cualquier persona que revise el historial de commits pueda entender rápidamente cada cambio, sin necesidad de leer todo el código
+---
+
+### **Ejercicio 8: Ver el Historial de Commits**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para ver el historial de commits?  
+    git log
+- ¿Qué información muestra el historial de commits?
+    el id del commit
+    el autor del commit
+    y la fecha y hora en la que se hizo
+---
+
+### **Ejercicio 9: Crear una Nueva Rama**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para crear una nueva rama en Git?  
+    git branch <<nombre de la rama>>
+- ¿Qué diferencia hay entre crear una rama y moverte a ella?
+    crear una rama generara una nueva y moverte a una rama hara que los cambios que ahora hagas se realicen en esa rama
+---
+
+### **Ejercicio 10: Listar Todas las Ramas**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para listar todas las ramas en Git? 
+    git branch
+- ¿Cómo puedes identificar en qué rama estás trabajando actualmente?
+    Aparecerá en verde cuando las listes
+
+---
+
+### **Ejercicio 11: Cambiar a una Rama Existente**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para cambiar de rama?  
+    git checkout <<nombre de la rama>>
+- ¿Cómo puedes confirmar en qué rama estás trabajando?
+    git branch
+---
+
+### **Ejercicio 12: Crear y Cambiar a una Nueva Rama en un Solo Paso** 
+
+**Preguntas a responder:**  
+- ¿Qué comando permite crear y cambiar a una nueva rama en un solo paso? 
+    git checkout -b 'mejoras-ui' 
+- ¿Cuál es la ventaja de usar este comando?
+    Crea una nueva rama y te mueve a ella directamente ahorrando un paso
+
+---
+
+### **Ejercicio 13: Añadir Archivos al Área de Preparación con un Comando Abreviado**
+
+**Preguntas a responder:**  
+- ¿Qué comando abreviado puedes usar para añadir todos los cambios al área de preparación? 
+    git add . 
+- ¿Qué ventajas tiene usar este comando en lugar de añadir archivos individualmente?
+    Los añade todos juntos en lugar de tener que ir uno por uno
+---
+
+### **Ejercicio 14: Realizar un Commit con un Mensaje Descriptivo**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para realizar un commit?  
+    git commit -m 'Actualización inicial de la interfaz de usuario'
+- ¿Por qué es importante escribir mensajes descriptivos en los commits? 
+    Para que cualquier persona que revise el historial de commits pueda entender rápidamente cada cambio, sin necesidad de leer todo el código.
+---
+
+### **Ejercicio 15: Fusionar Ramas**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para fusionar ramas en Git?  
+    git merge mejoras-ui
+- ¿Qué sucede si hay conflictos durante la fusión?
+    Te avisará de que hay un conflicto y se unirá el código en el archivo de la rama en la que estes, te indicará cual es el cambio actual 
+    y cual el del otro archivo.
+    El conflicto se tendrá que solucionar.
+---
+
+### **Ejercicio 16: Resolver Conflictos entre Ramas**
+
+**Preguntas a responder:**  
+- ¿Qué ocurre cuando Git detecta un conflicto durante la fusión?  
+    Te avisará de que hay un conflicto y se unirá el código en el archivo de la rama en la que estes, te indicará cual es el cambio actual 
+    y cual el del otro archivo.
+    El conflicto se tendrá que solucionar.
+- ¿Cómo puedes resolver un conflicto en Git?
+    Aceptando los cambios que vienen, dejando los cambios que hay en la rama o aceptando ambos cambios
+---
+
+### **Ejercicio 17: Crear un Archivo `.gitignore`**
+
+**Preguntas a responder:**  
+- ¿Qué es un archivo `.gitignore` y para qué sirve?  
+    Sirve para especificar qué archivos o directorios deben ser ignorados por Git cuando se realiza el seguimiento de los cambios en un proyecto
+- ¿Cómo puedes especificar qué tipos de archivos deben ser ignorados?
+    Si quieres ignorar todos los archivos de un tipo específico solo tienes que usar la extensión del archivo con un asterisco delante
+    Si quieres ignorar un directorio completo y todo su contenido, tienes que poner el nombre del directorio seguido de una barra
+---
+
+### **Ejercicio 18: Configurar Git para Ignorar Cambios en un Archivo Específico**
+
+**Preguntas a responder:**  
+- ¿Cómo puedes hacer que Git ignore los cambios en un archivo específico sin eliminarlo del repositorio?  
+    Poniendo el nombre del archivo y su extension dentro del archivo .gitignore.
+    Si el archivo ya está siendo rastreado habrá que lanzar el siguiente comando git rm --cached <<nombre del archivo>> pero esto lo borrará del repositorio.
+
+- ¿En qué situaciones sería útil esta técnica?
+    Para evitar cargar el repositorio con archivos que son modificados cada poco tiempo como los archivos temporales, los logs o las dependencias externas
+---
+
+### **Ejercicio 19: Clonar un Repositorio Remoto**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para clonar un repositorio remoto?  
+    git clone <<url https del repositorio>> o si tienes una clave ssh git clone git@github.com:<<nombre del usuario>>/<<nombre del repositorio>>.git
+- ¿Qué diferencia hay entre clonar un repositorio y crear uno nuevo?
+    Clonar un repositorio es traer un repositorio ya creado de remoto a local y crear uno nuevo es generarlo de cero.
+
+---
+
+### **Ejercicio 20: Conectarte a GitHub con SSH**  
+
+**Preguntas a responder:**  
+- ¿Qué es SSH y por qué es importante para trabajar con GitHub?
+    Con SSH puedes autenticarte de manera segura sin tener que ingresar tu nombre de usuario y contraseña cada vez que realizas operaciones.
+- ¿Cómo puedes generar una clave SSH en tu computadora?
+    Lanzando el comando ssh-keygen -t ed25519 -C "your_email@example.com"
+    La clave se te generara en la carpeta .ssh, tendrás que abrir el archivo acabado en .pub y copiar la clave pública que hay en él.
+    Por último, pegar la clave SSH a tu cuenta de GitHub en el apartado SSH and GPG keys dentro de ajustes 
+
+---
+
+### **Ejercicio 21: Subir Cambios Locales a GitHub**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para asociar un repositorio local con uno remoto?  
+    git remote add origin <<url del repositorio>>
+
+- ¿Qué comando usas para subir cambios locales a un repositorio remoto?
+    git push
+---
+
+### **Ejercicio 22: Actualizar tu Repositorio Local desde GitHub**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para descargar cambios del repositorio remoto?  
+    git pull desde la rama que quieras descargar
+- ¿Qué pasa si hay conflictos al sincronizar los cambios?
+    Git te notificará que hay conflictos de fusión y te pedirá que los resuelvas manualmente.
+---
+
+### **Ejercicio 23: Crear una Rama en GitHub**
+
+**Preguntas a responder:**  
+- ¿Cómo puedes subir una rama local a un repositorio remoto? 
+    Asegurarte que estas en la rama y lanzar el comando
+    git push -u origin <<nombre de la rama>>
+- ¿Cómo puedes verificar que la rama ha sido creada correctamente en GitHub?
+    Se puede verificar desde la interfaz web de GitHub o verificacando las ramas remotas con git branch -r
+---
+
+### **Ejercicio 24: Eliminar una Rama Local**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para eliminar una rama local? 
+    git branch -d <<nombre de la rama>>
+- ¿Es posible recuperar una rama eliminada?
+    Sí, con el siguiente comando y el id de un commit previo a la acción antes de eliminar la rama
+    git checkout -b <<nombre de la rama>> <commit id>
+---
+
+### **Ejercicio 25: Eliminar una Rama Remota**
+
+**Preguntas a responder:**  
+- ¿Cómo puedes eliminar una rama remota?  
+    git push origin --delete <<nombre de la rama>>
+- ¿Qué precauciones debes tomar antes de eliminar una rama remota?
+    Comunicarse con el equipo
+    Comprobar que la rama ya no sea necesaria
+    Verificar que la rama remota existe
+    Comprobar que se ha hecho algun merge a alguna rama porque sino se perderá
+    Elimina la rama de forma segura
+    
+---
+
+### **Ejercicio 26: Crear una Pull Request en GitHub**
+
+**Preguntas a responder:**  
+- ¿Qué es una pull request y para qué sirve?  
+    Es una solicitud para integrar los cambios de una rama de un repositorio en otra rama
+- ¿Qué información debes incluir en una pull request?
+    Te pedirá de que rama a que rama quieres pasar los cambios. Luego te pedirá un comentario que es opcional pero interesante rellenar para dar información a tus compañeros 
+
+---
+
+### **Ejercicio 27: Revisar y Comentar una Pull Request**
+
+**Preguntas a responder:**  
+- ¿Cómo puedes revisar una pull request en GitHub? 
+   Desde la interfaz web yendo al apartado pull requests y ahí aparecerá un listado con las pull request pendientes
+- ¿Qué tipo de comentarios son útiles en una revisión?
+    Comentarios sobre la legibilidad del código
+    Comentarios sobre la lógica
+    Comentarios sobre la optimización 
+
+---
+
+### **Ejercicio 28: Fusión Automática de una Pull Request**
+
+**Preguntas a responder:**  
+- ¿Cuándo puedes fusionar una pull request automáticamente? 
+    Cuando no hay conflictos de fusión entre las ramas y cuando el sistema de control de versiones detecta que el código es compatible y cumple con los criterios establecidos para la fusión
+
+- ¿Qué sucede después de fusionar una pull request?
+    Se crea un commit en el que se inidca que se ha mergeado el código y se cierra la pull request, que se pordrá ver en el apartado de closed dentro del de pull requests
+
+---
+
+### **Ejercicio 29: Descartar Cambios Locales**
+Descarta accidentalmente cambios locales que no quieres guardar.
+
+**Instrucciones Detalladas:**  
+1. Modifica un archivo local sin añadirlo al área de preparación.  
+2. Usa el comando adecuado para descartar estos cambios y restaurar el archivo a su estado anterior.  
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para descartar cambios locales?  
+    git checkout -- <<nombre del archivo>>
+- ¿Cuándo es útil descartar cambios locales?
+    Cuando hay cambios no deseados o errores y se desea resetar el código 
+---
+
+### **Ejercicio 30: Restaurar un Commit Anterior**
+Restaura tu repositorio a un commit anterior.
+
+**Instrucciones Detalladas:**  
+1. Identifica un commit anterior en el historial de commits.  
+2. Usa el comando adecuado para restaurar tu repositorio a ese commit específico.  
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para restaurar un commit anterior?  
+    git revert <commit id> o git reset
+- ¿Qué precauciones debes tomar al restaurar un commit anterior?
+    Asegurarse de que no hay cambios no comprometidos que se perderían al hacer un git reset --hard
+    Considerar hacer una copia de seguridad
+    Comprobar el flujo de trabajo del equipo
+---
+
+URL DEL REPOSITORIO CREADO PARA EL EJERCICO: https://github.com/CarlotadeMiguel/mi-proyecto-git.git
