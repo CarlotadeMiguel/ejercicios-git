@@ -43,7 +43,6 @@
     echo "" > README.md
 - ¿Qué diferencia observas en el estado del repositorio después de crear el archivo?
     Ahora me aparece el nombre del archivo en rojo y me dice que use el comando git add
-
 ---
 
 ### **Ejercicio 6: Añadir un Archivo al Área de Preparación**
@@ -91,7 +90,6 @@
     git branch
 - ¿Cómo puedes identificar en qué rama estás trabajando actualmente?
     Aparecerá en verde cuando las listes
-
 ---
 
 ### **Ejercicio 11: Cambiar a una Rama Existente**
@@ -181,7 +179,6 @@
     git clone <<url https del repositorio>> o si tienes una clave ssh git clone git@github.com:<<nombre del usuario>>/<<nombre del repositorio>>.git
 - ¿Qué diferencia hay entre clonar un repositorio y crear uno nuevo?
     Clonar un repositorio es traer un repositorio ya creado de remoto a local y crear uno nuevo es generarlo de cero.
-
 ---
 
 ### **Ejercicio 20: Conectarte a GitHub con SSH**  
@@ -193,7 +190,6 @@
     Lanzando el comando ssh-keygen -t ed25519 -C "your_email@example.com"
     La clave se te generara en la carpeta .ssh, tendrás que abrir el archivo acabado en .pub y copiar la clave pública que hay en él.
     Por último, pegar la clave SSH a tu cuenta de GitHub en el apartado SSH and GPG keys dentro de ajustes 
-
 ---
 
 ### **Ejercicio 21: Subir Cambios Locales a GitHub**
@@ -245,8 +241,7 @@
     Comprobar que la rama ya no sea necesaria
     Verificar que la rama remota existe
     Comprobar que se ha hecho algun merge a alguna rama porque sino se perderá
-    Elimina la rama de forma segura
-    
+    Elimina la rama de forma segura  
 ---
 
 ### **Ejercicio 26: Crear una Pull Request en GitHub**
@@ -256,7 +251,6 @@
     Es una solicitud para integrar los cambios de una rama de un repositorio en otra rama
 - ¿Qué información debes incluir en una pull request?
     Te pedirá de que rama a que rama quieres pasar los cambios. Luego te pedirá un comentario que es opcional pero interesante rellenar para dar información a tus compañeros 
-
 ---
 
 ### **Ejercicio 27: Revisar y Comentar una Pull Request**
@@ -268,7 +262,6 @@
     Comentarios sobre la legibilidad del código
     Comentarios sobre la lógica
     Comentarios sobre la optimización 
-
 ---
 
 ### **Ejercicio 28: Fusión Automática de una Pull Request**
@@ -279,15 +272,9 @@
 
 - ¿Qué sucede después de fusionar una pull request?
     Se crea un commit en el que se inidca que se ha mergeado el código y se cierra la pull request, que se pordrá ver en el apartado de closed dentro del de pull requests
-
 ---
 
-### **Ejercicio 29: Descartar Cambios Locales**
-Descarta accidentalmente cambios locales que no quieres guardar.
-
-**Instrucciones Detalladas:**  
-1. Modifica un archivo local sin añadirlo al área de preparación.  
-2. Usa el comando adecuado para descartar estos cambios y restaurar el archivo a su estado anterior.  
+### **Ejercicio 29: Descartar Cambios Locales** 
 
 **Preguntas a responder:**  
 - ¿Qué comando usas para descartar cambios locales?  
@@ -297,11 +284,6 @@ Descarta accidentalmente cambios locales que no quieres guardar.
 ---
 
 ### **Ejercicio 30: Restaurar un Commit Anterior**
-Restaura tu repositorio a un commit anterior.
-
-**Instrucciones Detalladas:**  
-1. Identifica un commit anterior en el historial de commits.  
-2. Usa el comando adecuado para restaurar tu repositorio a ese commit específico.  
 
 **Preguntas a responder:**  
 - ¿Qué comando usas para restaurar un commit anterior?  
@@ -311,5 +293,93 @@ Restaura tu repositorio a un commit anterior.
     Considerar hacer una copia de seguridad
     Comprobar el flujo de trabajo del equipo
 ---
+
+### **Ejercicio 31: Crear un Tag para Marcar una Versión**
+
+**Preguntas a responder:**  
+- ¿Qué es un tag en Git y para qué sirve?  
+    Es una referencia a un commit específico en el historial de tu repositorio. 
+    Los tags se utilizan principalmente para marcar puntos importantes en el desarrollo, como versiones específicas del proyecto
+- ¿Cómo puedes crear un tag asociado a un commit específico?
+    git tag <nombre del tag> <commit id> -m "Mensaje del tag"
+---
+
+### **Ejercicio 32: Listar Todos los Tags en tu Repositorio**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para listar todos los tags en Git?  
+    git tag
+- ¿Por qué es útil tener tags en un proyecto?
+    Porque proporcionan una manera de marcar puntos importantes y específicos en el historial del proyecto lo que puede ayudar a documentar el proyecto.
+    También facilitan la generación automática de releases
+---
+
+### **Ejercicio 33: Subir Tags al Repositorio Remoto**
+
+**Preguntas a responder:**  
+- ¿Cómo puedes subir tags locales a un repositorio remoto?  
+    git push --tags
+- ¿Qué pasa si intentas subir un tag que ya existe en el repositorio remoto?
+    Si intentas empujar un tag que ya existe, Git considera que estás intentando sobrescribirla, lo cual no es permitido por defecto
+---
+
+### **Ejercicio 34: Descargar Tags del Repositorio Remoto**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para descargar tags desde un repositorio remoto?  
+    git fetch --tags
+- ¿Cuándo sería útil descargar tags desde un repositorio remoto?
+    Es útil cuando has clonado un repositorio y necesitas actualizar o recuperar tags que han sido añadidos en el repositorio
+    remoto después de tu última sincronización o si alguien más ha creado nuevos tags que necesitas descargar
+---
+
+### **Ejercicio 35: Revertir un Commit**
+
+**Preguntas a responder:**  
+- ¿Qué diferencia hay entre revertir un commit y eliminarlo del historial?  
+    Cuando reviertes un commit, estás creando un nuevo commit que deshace los cambios introducidos por el commit original.
+    Eliminar un commit del historial significa borrarlo por completo, lo que puede alterar la línea de tiempo del proyecto
+- ¿Por qué es útil usar `revert` en lugar de simplemente eliminar un commit?
+    Mantiene la integridad del historial de Git lo que permite deshacer cambios sin perder información
+---
+
+### **Ejercicio 36: Eliminar un Commit del Historial**
+
+**Preguntas a responder:**  
+- ¿Qué comando puedes usar para eliminar un commit del historial?
+    git rebase -i <commit id>^  
+- ¿Cuándo es seguro usar este comando en un repositorio compartido?
+    Antes de hacer un push al repositorio remoto: Si el commit aún no ha sido empujado, 
+    puedes usar este comando sin riesgo de afectar a otros desarrolladores.
+    Si eres el único que trabaja en una rama y nadie más ha descargado o trabajado sobre esa rama, 
+    entonces puedes reescribir el historial sin preocupación
+---
+
+### **Ejercicio 37: Comparar Ramas**
+
+**Preguntas a responder:**  
+- ¿Qué comando usas para comparar ramas en Git? 
+    git diff << nombre de la otra rama >> 
+- ¿Qué información muestra esta comparación?
+    Muestra las diferencias en el contenido de los archivos entre las dos ramas o entre dos puntos en el historial
+---
+
+### **Ejercicio 38: Deshacer Cambios en un Archivo Específico**
+
+**Preguntas a responder:**  
+- ¿Cómo puedes deshacer cambios en un archivo específico?  
+    git checkout -- <<nombre del archivo>>
+- ¿Qué ventajas tiene esta técnica sobre descartar todos los cambios locales?
+    Mantiene los cambios en otros archivos por lo que hay menos riesgo de perder trabajo importante y flexibiliza la gestión de cambios
+---
+
+### **Ejercicio 39: Usar Alias para Simplificar Comandos** 
+
+**Preguntas a responder:**  
+- ¿Qué es un alias en Git y para qué sirve?
+    Un alias es una forma de abreviar o simplificar los comandos que usas con frecuencia
+- ¿Cómo puedes crear un alias personalizado para un comando Git?
+    git config --global alias.<nombre_alias> '<comando>'
+
 
 URL DEL REPOSITORIO CREADO PARA EL EJERCICO: https://github.com/CarlotadeMiguel/mi-proyecto-git.git
