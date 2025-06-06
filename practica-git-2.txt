@@ -1,0 +1,157 @@
+
+Ejercicio 1: Verificar la Configuración Global de Git
+
+¿Qué comando debes usar para verificar tu configuración global?
+    git config --list
+¿Cómo puedes configurar tu nombre de usuario y dirección de correo electrónico globalmente?
+    git config --global user.name "Tu Nombre" 
+    git config --global user.email "tu@email.com"
+---
+
+Ejercicio 2: Clonar un Repositorio Remoto
+
+¿Qué comando usas para clonar un repositorio remoto?
+    git clone <<url del repositorio>>
+¿Qué pasa si intentas clonar un repositorio que ya existe en tu máquina?
+    Git mostrará un mensaje de error indicando que la carpeta de destino ya existe
+---
+
+Ejercicio 3: Crear y Publicar una Rama Remota
+
+¿Qué comando usas para crear una rama local?
+    git branch <<nombre de la rama>> o git checkout -b <nombre de la rama>> este comando también te cambiará automáticamente a la rama creada
+¿Cómo subes una rama local al repositorio remoto?
+    Asegurarte que estas en la rama y lanzar el comando
+    git push -u origin <<nombre de la rama>>
+¿Qué diferencia hay entre una rama local y una rama remota?
+    La rama local solo existe en tu máquina, sólo tú puedes verla y modificarla.
+    La rama remota todos los que participen en el proyecto pueden acceder a ella y no se puede modificar directamente hay que bajarla primero a local
+---
+
+Ejercicio 4: Resolver Conflictos en Ramas
+
+¿Qué ocurre cuando Git detecta un conflicto durante una fusión?
+    Git detiene el proceso de fusión y te notifica para que puedas resolver el problema manualmente.
+¿Cómo identificas las secciones conflictivas en un archivo?
+    En el archivo afectado se podrán ver delimitadores que marcan las secciones conflictivas
+
+    <<<<<<< HEAD
+    (código de la rama actual)
+    =======
+    (código de la rama que se está fusionando)
+    >>>>>>>
+
+¿Qué pasos sigues para resolver un conflicto y completar la fusión?
+    Debes decidir qué código deseas conservar, para ello git te permite mantener el contenido de tu rama, mantener el contenido de la otra rama o tambien puedes combinar ambos contenidos de manera manual
+
+---
+
+Ejercicio 5: Etiquetar Versiones Importantes
+
+¿Qué comando usas para crear una etiqueta en Git?
+    git tag <nombre del tag> <commit id> -m "Mensaje del tag"
+
+    para subirlas
+    git push origin v1.0.0
+    git push origin --tags
+
+¿Cómo puedes listar todas las etiquetas existentes en tu repositorio?
+    git tag
+
+¿Por qué es útil utilizar etiquetas en tus proyectos?
+    Porque proporcionan una manera de marcar puntos importantes y específicos en el historial del proyecto lo que puede ayudar a documentar el proyecto.
+    También facilitan la generación automática de releases
+---
+
+Ejercicio 6: Revertir Cambios en un Commit
+
+¿Qué comando usas para revertir un commit en Git?
+    git revert <commit-hash>
+¿Cuál es la diferencia entre revertir un commit y eliminarlo completamente?
+    La diferencia principal es que cuando se revierte un commit con git revert, se crea un nuevo commit que deshace los cambios, pero el commit original permanece en el historial. Esto mantiene intacta la historia y no afecta a otros desarrolladores que puedan haber sincronizado su trabajo.
+    En cambio, eliminar un commit (por ejemplo, usando git reset o git rebase) puede modificar la historia, eliminando los commits o reescribiendo el historial, lo que puede ser riesgoso si otras personas están trabajando con el mismo repositorio.
+
+¿Por qué es importante mantener la historia del repositorio intacta?
+    Mantener el historial repositorio permite saber qué cambios se han realizado, quién los hizo y por qué. También permite gestionar las versiones y volver a ello.
+---
+
+Ejercicio 7: Trabajar con Ramas Origen/Destino
+
+¿Qué significa el parámetro --no-ff en una fusión?
+El parámetro --no-ff obliga a Git a crear siempre un commit de fusión (merge commit), incluso si la fusión podría hacerse con fast-forward (avance rápido).
+Fast-forward ocurre cuando la rama principal no tiene commits nuevos desde que se creó la rama secundaria; en ese caso, Git simplemente mueve el puntero hacia adelante sin crear un commit de fusión.
+Con --no-ff se crea un commit explícito de merge, aunque sea posible avanzar rápido.
+
+¿Por qué es útil preservar la historia de una rama después de fusionarla?
+Preservar la historia con un commit de merge hace que:
+Se mantenga claro en el historial cuándo y qué cambios se hicieron en una rama específica.
+Se facilita entender el contexto del trabajo (por ejemplo, que un conjunto de commits corresponde a una funcionalidad o corrección concreta).
+Se puede revertir o aislar la fusión completa si es necesario.
+Mejora la trazabilidad y revisión del código, útil para equipos y proyectos grandes.
+
+¿Qué ocurre si omites el parámetro --no-ff?
+Si omites --no-ff y la fusión puede hacerse con fast-forward:
+Git moverá el puntero de la rama principal hacia adelante, integrando los commits de la rama secundaria sin crear un commit de merge.
+La historia será lineal, pero no se verá que esos commits pertenecieron a una rama separada.
+Puede hacer que sea más difícil entender cuándo se integró un conjunto de cambios específico, porque no hay un punto explícito que indique la fusión.
+
+---
+
+Ejercicio 8: Actualizar y Sincronizar con el Repositorio Remoto
+
+¿Qué comando usas para verificar si hay actualizaciones disponibles en el repositorio remoto?
+    git fetch
+¿Cómo descargas las actualizaciones y las fusionas con tu rama local?
+    git pull
+¿Qué ocurre si hay conflictos durante la sincronización? ¿Cómo los resuelves?
+    Git marcará los archivos conflictivos y detendrá el proceso de fusión.
+    Se puede usar el comando git status para ver qué archivos necesitan resolución.
+    Al abrir los harchivos  hay que decidir cómo se fusionan los cambios. Se puede:
+        Mantener los cambios de tu rama local.
+        Aceptar los cambios del repositorio remoto.
+        Combinar ambos cambios de forma manual.
+---
+
+Ejercicio 9: Usar Alias para Comandos Frecuentes
+
+¿Cómo creas un alias para un comando Git?
+Puedes crear un alias temporal (solo para la sesión actual) así:
+git config alias.gst status
+
+¿Qué otros comandos frecuentes podrías simplificar con alias?
+git co para checkout
+git br para branch
+git cm para commit -m
+git st para status
+git lg para un log con formato legible
+
+¿Cómo puedes hacer que tus alias sean persistentes entre sesiones?
+Para que sean globales y estén disponibles en todos tus repositorios y sesiones
+git config --global alias.gst status
+Esto guarda el alias en ~/.gitconfig y estará siempre disponible.
+---
+
+Ejercicio 10: Colaborar en un Proyecto con Pull Requests
+
+¿Qué es un pull request y cuál es su propósito?
+Un pull request (PR) es una solicitud para integrar cambios de una rama a otra (normalmente de una rama de trabajo a la rama principal).
+
+Su propósito es:
+Facilitar la revisión de código.
+Discutir y validar cambios antes de integrarlos.
+Mantener la calidad y coordinación en proyectos colaborativos.
+
+¿Cómo creas un pull request en GitHub?
+Después de subir una rama, ve a la página del repositorio en GitHub.
+Haz clic en "Compare & pull request".
+Llena los campos (título, descripción).
+Envía el PR para que otros lo revisen.
+
+¿Qué pasa si recibes comentarios o sugerencias sobre tus cambios?
+Lees los comentarios y sugerencias.
+Modificas tu código localmente para responder a ellos.
+Haces nuevos commits y subes (git push) a la misma rama.
+El Pull Request se actualiza automáticamente con tus cambios.
+Se repite el ciclo hasta que el PR sea aprobado.
+
+URL DEL REPOSITORIO CREADO PARA EL EJERCICO: https://github.com/CarlotadeMiguel/mi-proyecto-git2.git
